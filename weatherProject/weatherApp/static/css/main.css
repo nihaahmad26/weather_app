@@ -1,0 +1,38 @@
+.badge{
+    margin: 5px;
+}
+
+.back{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 115px;
+}
+
+#title{
+    text-align: center;
+}
+
+.glow {
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #44ade9, 0 0 20px #44ade9, 0 0 30px #44ade9, 0 0 40px #44ade9, 0 0 50px #44ade9, 0 0 60px #44ade9, 0 0 70px #44ade9;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #44ade9, 0 0 40px #44ade9, 0 0 50px #44ade9, 0 0 60px #44ade9, 0 0 70px #44ade9, 0 0 80px #44ade9;
+    }
+  }
+
+  .card-body,.form-control{
+    background-color: black;
+  }
+ 
+ 

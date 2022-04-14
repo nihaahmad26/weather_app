@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.1/cerulean/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>Weather App</title>
+</head>
+<body>
+    <!-- <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+        <div class="container">
+            <a href="../" class="navbar-brand">Check the Current Weather in Any City <span style="color: rgv(39, 117, 161);"></span></a>
+        </div>
+    </div> -->
+<br> <br>
+<div id="title">
+    <h1 class="glow">Weather Desktop App</h1>
+    <img src="{% static 'images/Weather.png' %}" class="image" style="width: 100px; margin-bottom: -50px;">
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <form method="post" class="col-md">
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" class="form-control" name="city" placeholder="Choose Your City">
+            <div class="input-group-btn">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </form>
+</nav>
+<br> <br>
+{% if main == null %}
+<body class = "back" background="{% static 'images/weather.gif' %}">
+{% endif %}
+<div class="row">
+    {% if country_code and coordinate and temp and pressure and humidity %}
+    <div class="col d-flex justify-content-center">
+        <div class="card text-white bg-light mb-6">
+            <div class="card-body">
+                <h4><span class="badge badge-primary">City:</span>{{city}}</h4>
+                <h4><span class="badge badge-primary">Country Code:</span>{{country_code}}</h4>
+                <h4><span class="badge badge-primary">Coordinates:</span>{{coordinate}}</h4>
+                <h4><span class="badge badge-primary">Temperature:</span>{{temp}}°F</h4>
+                <h4><span class="badge badge-primary">Real Feel:</span>{{feels_like}}°F</h4>
+                <h4><span class="badge badge-primary">Pressure:</span>{{pressure}}</h4>
+                <h4><span class="badge badge-primary">Humidity:</span>{{humidity}}</h4>
+                <h4><span class="badge badge-primary">Main:</span>{{main}}</h4>
+                <h4><span class="badge badge-primary">Description:</span>{{description}} <img src="http://openweathermap.org/img/w/{{icon}}.png" alt="Image" style="width:100px"></h4>
+                
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% if main == "Clouds" %}
+<body class = "back" background="{% static 'images/cloud.gif' %}">
+{% endif %}
+
+{% if main == "Mist" %}
+<body class = "back" background="{% static 'images/mist.gif' %}">
+{% endif %}
+{% if main == "Fog" %}
+<body class = "back" background="{% static 'images/mist.gif' %}">
+{% endif %}
+
+{% if main == "Rain" %}
+<body class = "back" background="{% static 'images/rain.gif' %}">
+{% endif %}
+
+{% if main == "Thunderstorm" %}
+<body class = "back" background="{% static 'images/thunder.gif' %}">
+{% endif %}
+
+{% if main == "Drizzle" %}
+<body class = "back" background="{% static 'images/rain.gif' %}">
+{% endif %}
+
+{% if main == "Snow" %}
+<body class = "back" background="{% static 'images/snow.gif' %}">
+{% endif %}
+    
+{% if main == "Clear"%}
+<body class = "back" background="{% static 'images/clear.gif' %}">
+{% endif %}
+
+
+</body>
+</html>
